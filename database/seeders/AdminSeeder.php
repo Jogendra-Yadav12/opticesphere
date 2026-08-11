@@ -9,15 +9,14 @@ class AdminSeeder extends Seeder
 {
     public function run(): void
     {
-        Admin::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'admin@sellmarket.test',
-            'role' => 'super_admin',
-            'status' => true,
-        ]);
-
-        Admin::factory()->count(3)->create([
-            'status' => true,
-        ]);
+        Admin::updateOrCreate(
+            ['email' => 'admin@sellmarket.test'],
+            [
+                'name' => 'Super Admin',
+                'role' => 'super_admin',
+                'status' => true,
+                'password' => bcrypt('password'), // explicitly set password
+            ]
+        );
     }
 }
