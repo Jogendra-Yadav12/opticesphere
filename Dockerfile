@@ -46,4 +46,4 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 EXPOSE 80
 
 # Start Apache in the foreground (and run migrations/seeders first)
-CMD ["sh", "-c", "php artisan migrate --force && php artisan db:seed --class=AdminSeeder --force && apache2-foreground"]
+CMD ["sh", "-c", "php artisan migrate --force && php artisan db:seed && apache2-foreground"]
