@@ -14,8 +14,8 @@ class AdminSeeder extends Seeder
             ['email' => 'admin@sellmarket.test'],
             [
                 'name' => 'Super Admin',
-                'role' => 'admin',
-                'status' => 'active',
+                'role' => 'super_admin',
+                'status' => true,
                 'password' => 'password',
             ]
         );
