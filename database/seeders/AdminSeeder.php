@@ -15,7 +15,7 @@ class AdminSeeder extends Seeder
                 'name' => 'Super Admin',
                 'role' => 'super_admin',
                 'status' => true,
-                'password' => bcrypt('password'), // explicitly set password
+                'password' => 'password', // Don't use bcrypt because the Admin model has a 'hashed' cast which hashes it automatically
             ]
         );
     }
