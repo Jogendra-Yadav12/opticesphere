@@ -17,7 +17,12 @@ $app = Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->render(function (\Throwable $e) {
+            echo "<h1>TRUE ROOT CAUSE:</h1>";
+            echo "<p><strong>" . get_class($e) . "</strong>: " . $e->getMessage() . "</p>";
+            echo "<pre>" . $e->getTraceAsString() . "</pre>";
+            exit(1);
+        });
     })->create();
 
 if (isset($_ENV['VERCEL'])) {
