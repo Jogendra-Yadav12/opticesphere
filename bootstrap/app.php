@@ -4,6 +4,13 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
+if (isset($_ENV['VERCEL'])) {
+    $_ENV['APP_PACKAGES_CACHE'] = '/tmp/storage/bootstrap/cache/packages.php';
+    $_ENV['APP_SERVICES_CACHE'] = '/tmp/storage/bootstrap/cache/services.php';
+    $_SERVER['APP_PACKAGES_CACHE'] = '/tmp/storage/bootstrap/cache/packages.php';
+    $_SERVER['APP_SERVICES_CACHE'] = '/tmp/storage/bootstrap/cache/services.php';
+}
+
 $app = Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
@@ -17,12 +24,7 @@ $app = Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->render(function (\Throwable $e) {
-            echo "<h1>TRUE ROOT CAUSE:</h1>";
-            echo "<p><strong>" . get_class($e) . "</strong>: " . $e->getMessage() . "</p>";
-            echo "<pre>" . $e->getTraceAsString() . "</pre>";
-            exit(1);
-        });
+        //
     })->create();
 
 if (isset($_ENV['VERCEL'])) {
@@ -35,6 +37,7 @@ if (isset($_ENV['VERCEL'])) {
         '/tmp/storage/framework/views',
         '/tmp/storage/logs',
         '/tmp/storage/app/public',
+        '/tmp/storage/bootstrap/cache',
     ];
 
     foreach ($directories as $directory) {

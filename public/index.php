@@ -17,10 +17,4 @@ require __DIR__.'/../vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
-try {
-    $app->handleRequest(Request::capture());
-} catch (\Throwable $e) {
-    echo "<h1>CRITICAL ERROR:</h1>";
-    echo "<p>" . $e->getMessage() . "</p>";
-    echo "<pre>" . $e->getTraceAsString() . "</pre>";
-}
+$app->handleRequest(Request::capture());
