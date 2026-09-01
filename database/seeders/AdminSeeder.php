@@ -3,13 +3,15 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
     public function run(): void
     {
-        // Only adding the specific admin login details here (no extra dummy admins)
+        // Add the specific admin login details here (no extra dummy admins)
         Admin::updateOrCreate(
             ['email' => 'admin@sellmarket.test'],
             [
@@ -17,6 +19,18 @@ class AdminSeeder extends Seeder
                 'role' => 'super_admin',
                 'status' => true,
                 'password' => 'password',
+            ]
+        );
+
+        // Create the corresponding User record so that authentication works
+        User::updateOrCreate(
+            ['email' => 'admin@sellmarket.test'],
+            [
+                'name' => 'Super Admin',
+                'role' => 'admin',
+                'status' => 'active',
+                'password' => Hash::make('password'),
+                'email_verified_at' => now(),
             ]
         );
     }

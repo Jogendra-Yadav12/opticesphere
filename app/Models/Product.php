@@ -104,7 +104,7 @@ class Product extends Model
                 CASE WHEN (
                     SELECT u.role FROM users u
                     WHERE u.id = (SELECT v.user_id FROM vendors v WHERE v.id = products.vendor_id)
-                ) = "admin" THEN 0 ELSE NULL END,
+                ) = \'admin\' THEN 0 ELSE NULL END,
                 (
                     SELECT plans.product_limit
                     FROM subscriptions
@@ -113,13 +113,13 @@ class Product extends Model
                     WHERE subscriptions.user_id = (
                         SELECT v.user_id FROM vendors v WHERE v.id = products.vendor_id
                     )
-                    AND subscriptions.status IN ("active", "trialing")
+                    AND subscriptions.status IN (\'active\', \'trialing\')
                     AND (subscriptions.current_period_end IS NULL OR subscriptions.current_period_end > NOW())
                     ORDER BY subscriptions.id DESC
                     LIMIT 1
                 ),
                 (
-                    SELECT product_limit FROM plans WHERE slug = "free" AND status = "active" LIMIT 1
+                    SELECT product_limit FROM plans WHERE slug = \'free\' AND status = \'active\' LIMIT 1
                 ),
                 0
             )';
@@ -130,8 +130,8 @@ class Product extends Model
                     SELECT COUNT(*)
                     FROM products AS p2
                     WHERE p2.vendor_id = products.vendor_id
-                      AND p2.status = "active"
-                      AND p2.approval_status = "approved"
+                      AND p2.status = \'active\'
+                      AND p2.approval_status = \'approved\'
                       AND (
                           p2.is_featured > products.is_featured
                           OR (p2.is_featured = products.is_featured AND p2.id <= products.id)

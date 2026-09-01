@@ -16,11 +16,11 @@ class ProductSeeder extends Seeder
         $vendors = Vendor::approved()->get();
         $categories = Category::whereNotNull('parent_id')->get();
 
-        Product::factory()->count(100)->create(['vendor_id' => $vendors->random()->id])->each(function (Product $product) use ($categories) {
+        Product::factory()->count(15)->create(['vendor_id' => $vendors->random()->id])->each(function (Product $product) use ($categories) {
             $product->categories()->attach($categories->random(rand(1, 3))->pluck('id'));
         });
 
-        Product::factory()->count(30)->variable()->create(['vendor_id' => $vendors->random()->id])->each(function (Product $product) use ($categories) {
+        Product::factory()->count(3)->variable()->create(['vendor_id' => $vendors->random()->id])->each(function (Product $product) use ($categories) {
             $product->categories()->attach($categories->random(rand(1, 2))->pluck('id'));
 
             ProductVariant::factory()->count(rand(2, 4))->create([
@@ -28,10 +28,10 @@ class ProductSeeder extends Seeder
             ]);
         });
 
-        Product::factory()->count(15)->digital()->create(['vendor_id' => $vendors->random()->id]);
+        Product::factory()->count(2)->digital()->create(['vendor_id' => $vendors->random()->id]);
 
-        Product::query()->inRandomOrder()->limit(200)->get()->each(function (Product $product) {
-            Review::factory()->count(rand(1, 5))->create([
+        Product::query()->inRandomOrder()->limit(20)->get()->each(function (Product $product) {
+            Review::factory()->count(rand(1, 2))->create([
                 'reviewable_type' => Product::class,
                 'reviewable_id' => $product->id,
             ]);

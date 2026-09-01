@@ -21,7 +21,7 @@ class VendorSeeder extends Seeder
             $vendor->user->update([
                 'name' => $vendor->store_name,
                 'role' => 'seller',
-                'status' => 'active',
+                'status' => 'approved',
             ]);
         });
 
@@ -29,7 +29,7 @@ class VendorSeeder extends Seeder
             $vendor->user->update([
                 'name' => $vendor->store_name,
                 'role' => 'seller',
-                'status' => 'active',
+                'status' => 'pending',
             ]);
         });
     }

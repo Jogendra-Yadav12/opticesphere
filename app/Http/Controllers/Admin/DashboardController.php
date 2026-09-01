@@ -122,7 +122,7 @@ class DashboardController extends Controller
 
         $query = DB::table('order_items')
             ->join('orders', 'orders.id', '=', 'order_items.order_id')
-            ->selectRaw('DATE(orders.placed_at) as d')
+            ->selectRaw('orders.placed_at::date as d')
             ->selectRaw('SUM(order_items.line_total) as revenue')
             ->where('orders.placed_at', '>=', $start->startOfDay());
 

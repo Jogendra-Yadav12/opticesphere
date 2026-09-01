@@ -29,12 +29,7 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class,
         ]);
 
-        User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'admin@sellmarket.test',
-            'role' => 'admin',
-            'status' => 'active',
-        ]);
+
 
         $customer = User::factory()->create([
             'name' => 'Demo Customer',
