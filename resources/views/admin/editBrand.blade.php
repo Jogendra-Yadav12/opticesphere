@@ -37,7 +37,7 @@
                                 <label class="form-label fw-bold">Logo</label>
                                 <input type="file" class="form-control" name="logo" accept="image/*">
                                 @if($brand->logo)
-                                    <img src="{{ asset('images/'.$brand->logo) }}" alt="logo" class="mt-3" style="height: 48px; border-radius: 6px;">
+                                    <img src="{{ Storage::url('images/'.$brand->logo) }}" alt="logo" class="mt-3" style="height: 48px; border-radius: 6px;">
                                 @endif
                             </div>
 

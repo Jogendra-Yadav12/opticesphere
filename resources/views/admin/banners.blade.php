@@ -42,7 +42,7 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>
-                                            <img src="{{ asset('images/slider/'.$banner->image_path) }}" alt="..." style="width:100px; height:auto; border-radius:5px">
+                                            <img src="{{ Storage::url('images/slider/'.$banner->image_path) }}" alt="..." style="width:100px; height:auto; border-radius:5px">
                                         </td>
                                         <td>
                                             {{ $banner->title }}<br>

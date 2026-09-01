@@ -96,7 +96,7 @@
                                 <input type="file" name="store_logo" class="form-control" accept="image/*">
                                 @if($getSetting('store_logo'))
                                     <div class="mt-2">
-                                        <img src="{{ asset('images/logos/'.$getSetting('store_logo')) }}" alt="Store Logo" style="max-height: 80px;">
+                                        <img src="{{ Storage::url('images/logos/'.$getSetting('store_logo')) }}" alt="Store Logo" style="max-height: 80px;">
                                     </div>
                                 @endif
                             </div>
@@ -105,7 +105,7 @@
                                 <input type="file" name="default_image" class="form-control" accept="image/*">
                                 @if($getSetting('default_image'))
                                     <div class="mt-2">
-                                        <img src="{{ asset('images/'.$getSetting('default_image')) }}" alt="Default Image" style="max-height: 80px;">
+                                        <img src="{{ Storage::url('images/'.$getSetting('default_image')) }}" alt="Default Image" style="max-height: 80px;">
                                     </div>
                                 @endif
                             </div>
@@ -114,7 +114,7 @@
                                 <input type="file" name="contact_page_image" class="form-control" accept="image/*">
                                 @if($getSetting('contact_page_image'))
                                     <div class="mt-2">
-                                        <img src="{{ asset('images/'.$getSetting('contact_page_image')) }}" alt="Contact Page Image" style="max-height: 80px;">
+                                        <img src="{{ Storage::url('images/'.$getSetting('contact_page_image')) }}" alt="Contact Page Image" style="max-height: 80px;">
                                     </div>
                                 @else
                                     <small class="text-muted d-block mt-1">No image uploaded yet. The default image will be shown.</small>

@@ -37,7 +37,7 @@ class BrandController extends Controller
 
         if ($request->hasFile('logo')) {
             $filename = 'brand-'.time().'-'.Str::random(6).'.'.$request->file('logo')->getClientOriginalExtension();
-            $request->file('logo')->move(public_path('images'), $filename);
+            $request->file('logo')->storeAs('images', $filename, config('filesystems.default'));
             $brand->logo = $filename;
             $brand->save();
         }
@@ -63,7 +63,7 @@ class BrandController extends Controller
 
         if ($request->hasFile('logo')) {
             $filename = 'brand-'.time().'-'.Str::random(6).'.'.$request->file('logo')->getClientOriginalExtension();
-            $request->file('logo')->move(public_path('images'), $filename);
+            $request->file('logo')->storeAs('images', $filename, config('filesystems.default'));
             $brand->logo = $filename;
         }
 

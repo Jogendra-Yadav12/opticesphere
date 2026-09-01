@@ -33,7 +33,7 @@
                                     <input type="file" class="form-control" name="store_logo" accept="image/*">
                                     @if($seller->store_logo)
                                         <div class="mt-2">
-                                            <img src="{{ asset('images/logos/'.$seller->store_logo) }}" alt="Logo" style="height: 50px;">
+                                            <img src="{{ Storage::url('images/logos/'.$seller->store_logo) }}" alt="Logo" style="height: 50px;">
                                         </div>
                                     @endif
                                 </div>
@@ -42,7 +42,7 @@
                                     <input type="file" class="form-control" name="store_banner" accept="image/*">
                                     @if($seller->store_banner)
                                         <div class="mt-2">
-                                            <img src="{{ asset('images/banners/'.$seller->store_banner) }}" alt="Banner" style="height: 80px; object-fit: cover;">
+                                            <img src="{{ Storage::url('images/banners/'.$seller->store_banner) }}" alt="Banner" style="height: 80px; object-fit: cover;">
                                         </div>
                                     @endif
                                 </div>

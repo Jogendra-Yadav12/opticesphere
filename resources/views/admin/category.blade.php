@@ -49,7 +49,7 @@
                                                 <tr>
                                                     <td>{{$i}}</td>
                                                     <td>
-                                                        <img src="{{ $value->img && $value->img !== 'default.png' ? asset('images/'.$value->img) : 'https://ui-avatars.com/api/?name='.urlencode($value->name).'&background=random' }}" alt="..." style="width:70px;height:70px;border-radius:50%">
+                                                        <img src="{{ $value->img && $value->img !== 'default.png' ? Storage::url('images/'.$value->img) : 'https://ui-avatars.com/api/?name='.urlencode($value->name).'&background=random' }}" alt="..." style="width:70px;height:70px;border-radius:50%">
                                                     </td>
                                                     <td>{{$value->name}}</td>
                                                     <td>

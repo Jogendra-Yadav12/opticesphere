@@ -92,7 +92,7 @@
                                         <input type="file" id="imageUpload" name="image" class="d-none" accept="image/*" onchange="previewImage(event)">
                                     </label>
                                     <div class="text-center">
-                                        <img id="imagePreview" src="{{ $product->image ? asset('images/products/'.$product->image) : '#' }}" alt="Preview" style="{{ $product->image ? 'display:inline-block;' : 'display:none;' }}" />
+                                        <img id="imagePreview" src="{{ $product->image ? Storage::url('images/products/'.$product->image) : '#' }}" alt="Preview" style="{{ $product->image ? 'display:inline-block;' : 'display:none;' }}" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
@@ -106,7 +106,7 @@
                                         @if(isset($product) && $product->images)
                                             @foreach($product->images as $image)
                                                 <div class="position-relative d-inline-block">
-                                                    <img src="{{ asset('images/products/gallery/'.$image->image_path) }}" style="max-height: 80px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-right: 10px; margin-bottom: 10px;" alt="Gallery Image">
+                                                    <img src="{{ Storage::url('images/products/gallery/'.$image->image_path) }}" style="max-height: 80px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-right: 10px; margin-bottom: 10px;" alt="Gallery Image">
                                                 </div>
                                             @endforeach
                                         @endif

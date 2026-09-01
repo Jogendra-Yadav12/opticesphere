@@ -43,7 +43,7 @@
                                         <th scope="row">{{ $post->id }}</th>
                                         <td>
                                             @if($post->cover_image)
-                                                <img src="{{ asset('images/'.$post->cover_image) }}" alt="cover" style="height: 36px; width: 48px; object-fit: cover; border-radius: 4px;">
+                                                <img src="{{ Storage::url('images/'.$post->cover_image) }}" alt="cover" style="height: 36px; width: 48px; object-fit: cover; border-radius: 4px;">
                                             @else
                                                 <span class="text-muted">—</span>
                                             @endif

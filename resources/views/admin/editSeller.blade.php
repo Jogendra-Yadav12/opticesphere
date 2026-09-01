@@ -138,7 +138,7 @@
                                     <input type="file" class="form-control" name="store_logo" accept="image/*">
                                     @if($seller->vendor->logo ?? null)
                                         <div class="mt-2">
-                                            <img src="{{ asset('images/logos/'.$seller->vendor->logo) }}" alt="Logo" style="height: 50px;">
+                                            <img src="{{ Storage::url('images/logos/'.$seller->vendor->logo) }}" alt="Logo" style="height: 50px;">
                                         </div>
                                     @endif
                                 </div>
@@ -148,7 +148,7 @@
                                     <input type="file" class="form-control" name="store_banner" accept="image/*">
                                     @if($seller->vendor->banner ?? null)
                                         <div class="mt-2">
-                                            <img src="{{ asset('images/banners/'.$seller->vendor->banner) }}" alt="Banner" style="height: 70px; object-fit: cover;">
+                                            <img src="{{ Storage::url('images/banners/'.$seller->vendor->banner) }}" alt="Banner" style="height: 70px; object-fit: cover;">
                                         </div>
                                     @endif
                                 </div>

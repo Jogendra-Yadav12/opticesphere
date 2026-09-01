@@ -64,7 +64,7 @@
                                                 <tr>
                                                     <td>{{ $key + 1 }}</td>
                                                     <td>
-                                                        <img src="{{ $product->image ? asset('images/products/'.$product->image) : 'https://ui-avatars.com/api/?name='.urlencode($product->name).'&background=random' }}" alt="..." style="width:70px;height:70px;border-radius:10%" onerror="this.onerror=null; this.src='{{ asset('images/'.$product->image) }}'">
+                                                        <img src="{{ $product->image ? Storage::url('images/products/'.$product->image) : 'https://ui-avatars.com/api/?name='.urlencode($product->name).'&background=random' }}" alt="..." style="width:70px;height:70px;border-radius:10%" onerror="this.onerror=null; this.src='{{ Storage::url('images/'.$product->image) }}'">
                                                     </td>
                                                     <td>{{ $product->name }}</td>
                                                     <td>

@@ -48,7 +48,7 @@
                                     <label class="form-label fw-bold">Cover Image</label>
                                     <input type="file" class="form-control" name="cover_image" accept="image/*">
                                     @if($post->cover_image)
-                                        <img src="{{ asset('images/'.$post->cover_image) }}" alt="cover" class="mt-3" style="height: 60px; border-radius: 6px;">
+                                        <img src="{{ Storage::url('images/'.$post->cover_image) }}" alt="cover" class="mt-3" style="height: 60px; border-radius: 6px;">
                                     @endif
                                 </div>
                                 <div class="col-md-6 mb-4">

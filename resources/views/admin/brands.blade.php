@@ -43,7 +43,7 @@
                                         <th scope="row">{{ $brand->id }}</th>
                                         <td>
                                             @if($brand->logo)
-                                                <img src="{{ asset('images/'.$brand->logo) }}" alt="logo" style="height: 32px; border-radius: 4px;">
+                                                <img src="{{ Storage::url('images/'.$brand->logo) }}" alt="logo" style="height: 32px; border-radius: 4px;">
                                             @else
                                                 <span class="text-muted">—</span>
                                             @endif

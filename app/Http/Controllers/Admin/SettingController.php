@@ -42,7 +42,7 @@ class SettingController extends Controller
 
         if ($request->hasFile('store_logo')) {
             $filename = 'logo-'.time().'-'.Str::random(6).'.'.$request->file('store_logo')->getClientOriginalExtension();
-            $request->file('store_logo')->move(public_path('images/logos'), $filename);
+            $request->file('store_logo')->storeAs('images/logos', $filename, config('filesystems.default'));
 
             Setting::updateOrCreate(
                 ['key' => 'store_logo'],
@@ -52,7 +52,7 @@ class SettingController extends Controller
 
         if ($request->hasFile('default_image')) {
             $filename = 'default-'.time().'-'.Str::random(6).'.'.$request->file('default_image')->getClientOriginalExtension();
-            $request->file('default_image')->move(public_path('images'), $filename);
+            $request->file('default_image')->storeAs('images', $filename, config('filesystems.default'));
 
             Setting::updateOrCreate(
                 ['key' => 'default_image'],
@@ -62,7 +62,7 @@ class SettingController extends Controller
 
         if ($request->hasFile('contact_page_image')) {
             $filename = 'contact-'.time().'-'.Str::random(6).'.'.$request->file('contact_page_image')->getClientOriginalExtension();
-            $request->file('contact_page_image')->move(public_path('images'), $filename);
+            $request->file('contact_page_image')->storeAs('images', $filename, config('filesystems.default'));
 
             Setting::updateOrCreate(
                 ['key' => 'contact_page_image'],

@@ -237,7 +237,7 @@
                                                 @forelse($reviews as $review)
                                                 <div class="mb-2-3 pb-2-3 border-bottom">
                                                     <div class="media mb-4 product-review">
-                                                        <img class="me-3 rounded-circle w-60px" src="{{ $review->user && $review->user->avatar ? asset('images/avatars/'.$review->user->avatar) : asset('img/avatar/t-1.jpg') }}" alt="{{ $review->user->name ?? 'Customer' }}">
+                                                        <img class="me-3 rounded-circle w-60px" src="{{ $review->user && $review->user->avatar ? Storage::url('images/avatars/'.$review->user->avatar) : asset('img/avatar/t-1.jpg') }}" alt="{{ $review->user->name ?? 'Customer' }}">
                                                         <div class="media-body">
                                                             <a href="#" class="mb-1 font-weight-600 text-extra-dark-gray">{{ $review->user->name ?? 'Customer' }}</a>
                                                             <span class="d-block text-primary">{{ $review->created_at->format('M d, Y') }}</span>

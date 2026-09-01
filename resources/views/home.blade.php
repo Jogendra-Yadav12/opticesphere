@@ -9,7 +9,7 @@
         <section class="full-screen p-0 top-position">
             <div class="slider-fade2 owl-carousel owl-theme w-100">
                 @forelse($banners as $banner)
-                <div class="item bg-img h-100 w-100 cover-background" data-overlay-dark="0" data-background="{{ asset('images/slider/'.$banner->image_path) }}">
+                <div class="item bg-img h-100 w-100 cover-background" data-overlay-dark="0" data-background="{{ Storage::url('images/slider/'.$banner->image_path) }}">
                     <div class="container h-100 d-table">
                         <div class="row d-table-cell align-middle h-100">
                             <div class="col-lg-5">
@@ -47,7 +47,7 @@
                     <div class="item">
                         <a href="{{ url('shop?category_id='.$category->id) }}" class="categoty-style2">
                             <div class="category-icon mb-4">
-                                <img src="{{ $category->img && $category->img !== 'default.png' ? asset('images/'.$category->img) : default_image() }}" alt="{{ $category->name }}">
+                                <img src="{{ $category->img && $category->img !== 'default.png' ? Storage::url('images/'.$category->img) : default_image() }}" alt="{{ $category->name }}">
                             </div>
                             <h3 class="font-weight-500 mb-0">{{ $category->name }}</h3>
                         </a>
@@ -72,7 +72,7 @@
                         <div class="product-grid-four">
                             <div class="product-img">
                                 <a href="{{ url('productDetails/'.$product->id) }}">
-                                    <img src="{{ $product->image ? asset('images/products/'.$product->image) : default_image() }}" alt="{{ $product->name }}">
+                                    <img src="{{ $product->image ? Storage::url('images/products/'.$product->image) : default_image() }}" alt="{{ $product->name }}">
                                 </a>
                                 <div class="action-butn">
                                     @php $purchasable = !in_array($product->vendor_id, $nonPurchasableVendorIds ?? [], true); @endphp
@@ -118,7 +118,7 @@
                         <a href="{{ route('store', $vendor->slug ?: $vendor->id) }}" class="d-block text-decoration-none">
                         <div class="categoty-style2 text-center">
                             <div class="category-icon mb-4">
-                                <img src="{{ $vendor->logo ? asset('images/logos/'.$vendor->logo) : default_image() }}" alt="{{ $vendor->store_name }}">
+                                <img src="{{ $vendor->logo ? Storage::url('images/logos/'.$vendor->logo) : default_image() }}" alt="{{ $vendor->store_name }}">
                             </div>
                             <h3 class="font-weight-500 mb-1">{{ $vendor->store_name }}</h3>
                             <div class="seller-rating"><i class="fas fa-star"></i> {{ number_format((float) $vendor->rating_avg, 1) }}</div>

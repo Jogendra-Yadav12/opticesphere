@@ -100,7 +100,7 @@
                             <div class="d-flex {{ !$loop->last ? 'mb-4' : '' }}">
                                 <div class="flex-shrink-0">
                                     <a href="{{ url('productDetails/'.$latest->id) }}">
-                                        <img class="latest-product-thumb" src="{{ $latest->image ? asset('images/products/'.$latest->image) : default_image() }}" alt="{{ $latest->name }}">
+                                        <img class="latest-product-thumb" src="{{ $latest->image ? Storage::url('images/products/'.$latest->image) : default_image() }}" alt="{{ $latest->name }}">
                                     </a>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
@@ -168,7 +168,7 @@
                                             @if($product->special_price)
                                             <div class="label-offer bg-red">Sale</div>
                                             @endif
-                                            <img src="{{ $product->image ? asset('images/products/'.$product->image) : default_image() }}" alt="{{ $product->name }}">
+                                            <img src="{{ $product->image ? Storage::url('images/products/'.$product->image) : default_image() }}" alt="{{ $product->name }}">
                                         </a>
                                     </div>
                                     <div class="product-description">

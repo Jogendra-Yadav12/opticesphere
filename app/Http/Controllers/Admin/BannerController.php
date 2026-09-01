@@ -33,7 +33,7 @@ class BannerController extends Controller
         ]);
 
         $filename = 'banner-'.time().'-'.Str::random(6).'.'.$request->file('image')->getClientOriginalExtension();
-        $request->file('image')->move(public_path('images/slider'), $filename);
+        $request->file('image')->storeAs('images/slider', $filename, config('filesystems.default'));
 
         Banner::create([
             'title' => $request->input('title'),
@@ -72,7 +72,7 @@ class BannerController extends Controller
 
         if ($request->hasFile('image')) {
             $filename = 'banner-'.time().'-'.Str::random(6).'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(public_path('images/slider'), $filename);
+            $request->file('image')->storeAs('images/slider', $filename, config('filesystems.default'));
             $banner->image = $filename;
         }
 

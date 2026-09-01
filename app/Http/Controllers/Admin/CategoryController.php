@@ -66,7 +66,7 @@ class CategoryController extends Controller
 
         if ($request->hasFile('img')) {
             $filename = 'cat-'.time().'-'.Str::random(6).'.'.$request->file('img')->getClientOriginalExtension();
-            $request->file('img')->move(public_path('images'), $filename);
+            $request->file('img')->storeAs('images', $filename, config('filesystems.default'));
             $category->image = $filename;
             $category->save();
         }
@@ -96,7 +96,7 @@ class CategoryController extends Controller
 
         if ($request->hasFile('img')) {
             $filename = 'cat-'.time().'-'.Str::random(6).'.'.$request->file('img')->getClientOriginalExtension();
-            $request->file('img')->move(public_path('images'), $filename);
+            $request->file('img')->storeAs('images', $filename, config('filesystems.default'));
             $category->image = $filename;
         }
 

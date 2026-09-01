@@ -51,7 +51,7 @@
                                 @endphp
                                     <tr>
                                         <td class="text-start">
-                                            <img src="{{ $item->product->image ? asset('images/products/'.$item->product->image) : default_image() }}" alt="..." style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
+                                            <img src="{{ $item->product->image ? Storage::url('images/products/'.$item->product->image) : default_image() }}" alt="..." style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
                                             <a href="{{ route('customer.product.details', $item->product_id) }}">{{ $item->product->name }}</a>
                                             @if(count($item->selected_options) > 0)
                                                 <div class="small text-muted mt-1">

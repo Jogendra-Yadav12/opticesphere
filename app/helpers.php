@@ -16,7 +16,7 @@ if (! function_exists('default_image')) {
 
         $image = Setting::where('key', 'default_image')->value('value');
 
-        $cached = $image ? asset('images/'.$image) : asset('img/logos/logo.png');
+        $cached = $image ? Storage::url('images/'.$image) : asset('img/logos/logo.png');
 
         return $cached;
     }

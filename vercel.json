@@ -31,6 +31,7 @@
         "SESSION_DRIVER": "cookie",
         "QUEUE_CONNECTION": "sync",
         "LOG_CHANNEL": "stderr",
-        "VERCEL": "1"
+        "VERCEL": "1",
+        "FILESYSTEM_DISK": "s3"
     }
 }

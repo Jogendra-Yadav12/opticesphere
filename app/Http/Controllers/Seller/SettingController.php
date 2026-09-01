@@ -63,14 +63,14 @@ class SettingController extends Controller
 
             if ($request->hasFile('store_logo')) {
                 $filename = 'logo-'.time().'-'.Str::random(6).'.'.$request->file('store_logo')->getClientOriginalExtension();
-                $request->file('store_logo')->move(public_path('images/logos'), $filename);
+                $request->file('store_logo')->storeAs('images/logos', $filename, config('filesystems.default'));
                 $vendor->logo = $filename;
                 $vendor->save();
             }
 
             if ($request->hasFile('store_banner')) {
                 $filename = 'banner-'.time().'-'.Str::random(6).'.'.$request->file('store_banner')->getClientOriginalExtension();
-                $request->file('store_banner')->move(public_path('images/banners'), $filename);
+                $request->file('store_banner')->storeAs('images/banners', $filename, config('filesystems.default'));
                 $vendor->banner = $filename;
                 $vendor->save();
             }

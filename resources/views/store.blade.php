@@ -23,12 +23,12 @@
         <!-- STORE BANNER (full image, aspect ratio fit)
         ================================================== -->
         <section class="store-banner">
-            <img class="store-banner-img" src="{{ $vendor->banner ? asset('images/banners/'.$vendor->banner) : default_image() }}" alt="{{ $vendor->store_name }}">
+            <img class="store-banner-img" src="{{ $vendor->banner ? Storage::url('images/banners/'.$vendor->banner) : default_image() }}" alt="{{ $vendor->store_name }}">
 
             <div class="store-banner-overlay">
                 <div class="container">
                     <div class="d-flex align-items-center">
-                        <img class="store-logo me-4" src="{{ $vendor->logo ? asset('images/logos/'.$vendor->logo) : default_image() }}" alt="{{ $vendor->store_name }}">
+                        <img class="store-logo me-4" src="{{ $vendor->logo ? Storage::url('images/logos/'.$vendor->logo) : default_image() }}" alt="{{ $vendor->store_name }}">
                         <div>
                             <h2 class="mb-1">{{ $vendor->store_name }}</h2>
                             <div class="mb-2">
@@ -147,7 +147,7 @@
                                 <div class="product-grid-four">
                                     <div class="product-img">
                                         <a href="{{ url('productDetails/'.$product->id) }}">
-                                            <img src="{{ $product->image ? asset('images/products/'.$product->image) : default_image() }}" alt="{{ $product->name }}">
+                                            <img src="{{ $product->image ? Storage::url('images/products/'.$product->image) : default_image() }}" alt="{{ $product->name }}">
                                         </a>
                                         <div class="action-butn">
                                             @php $purchasable = !in_array($product->vendor_id, $nonPurchasableVendorIds ?? [], true); @endphp

@@ -118,7 +118,7 @@
                         <a href="{{ route('store', $vendor->slug ?: $vendor->id) }}" class="d-block text-decoration-none">
                         <div class="categoty-style2 text-center">
                             <div class="category-icon mb-4">
-                                <img src="{{ $vendor->logo ? asset('images/logos/'.$vendor->logo) : default_image() }}" alt="{{ $vendor->store_name }}">
+                                <img src="{{ $vendor->logo ? Storage::url('images/logos/'.$vendor->logo) : default_image() }}" alt="{{ $vendor->store_name }}">
                             </div>
                             <h3 class="font-weight-500 mb-1">{{ $vendor->store_name }}</h3>
                             <div class="seller-rating"><i class="fas fa-star"></i> {{ number_format((float) $vendor->rating_avg, 1) }}</div>

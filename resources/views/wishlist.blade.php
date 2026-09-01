@@ -60,7 +60,7 @@
                                         @php $price = $item->product->special_price ?? $item->product->price; @endphp
                                         <tr>
                                             <td class="text-start">
-                                                <img src="{{ $item->product->image ? asset('images/products/'.$item->product->image) : default_image() }}" alt="..." style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
+                                                <img src="{{ $item->product->image ? Storage::url('images/products/'.$item->product->image) : default_image() }}" alt="..." style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
                                                 <a href="{{ route('customer.product.details', $item->product_id) }}">{{ $item->product->name }}</a>
                                             </td>
                                             <td>₹{{ number_format($price, 2) }}</td>

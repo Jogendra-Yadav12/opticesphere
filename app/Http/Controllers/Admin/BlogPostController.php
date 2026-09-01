@@ -37,7 +37,7 @@ class BlogPostController extends Controller
 
         if ($request->hasFile('cover_image')) {
             $filename = 'blog-'.time().'-'.Str::random(6).'.'.$request->file('cover_image')->getClientOriginalExtension();
-            $request->file('cover_image')->move(public_path('images'), $filename);
+            $request->file('cover_image')->storeAs('images', $filename, config('filesystems.default'));
             $post->cover_image = $filename;
             $post->save();
         }
@@ -63,7 +63,7 @@ class BlogPostController extends Controller
 
         if ($request->hasFile('cover_image')) {
             $filename = 'blog-'.time().'-'.Str::random(6).'.'.$request->file('cover_image')->getClientOriginalExtension();
-            $request->file('cover_image')->move(public_path('images'), $filename);
+            $request->file('cover_image')->storeAs('images', $filename, config('filesystems.default'));
             $blog->cover_image = $filename;
         }
 

@@ -28,7 +28,7 @@
         $footerCreditText = \App\Models\Setting::where('key', 'footer_credit_text')->value('value') ?? 'Jogendra Yadav';
         $footerCreditUrl = \App\Models\Setting::where('key', 'footer_credit_url')->value('value') ?? 'https://jogendra-yadav.netlify.app/';
         $paymentMethods = array_values(array_filter(array_map('trim', explode(',', \App\Models\Setting::where('key', 'payment_methods')->value('value') ?? 'visa.png, mastercard.png, paypal.png, amex.png, discover.png'))));
-        $favicon = $storeLogo ? asset('images/logos/'.$storeLogo) : asset('img/logos/logo.png');
+        $favicon = $storeLogo ? Storage::url('images/logos/'.$storeLogo) : asset('img/logos/logo.png');
     @endphp
 
     <!-- title  -->

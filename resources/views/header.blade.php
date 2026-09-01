@@ -37,7 +37,7 @@
                                         @endphp
                                         <a href="{{ url('/') }}" class="navbar-brand">
                                             @if($storeLogo)
-                                                <img src="{{ asset('images/logos/'.$storeLogo) }}" alt="logo" style="max-height: 50px;">
+                                                <img src="{{ Storage::url('images/logos/'.$storeLogo) }}" alt="logo" style="max-height: 50px;">
                                             @else
                                                 <h4>{{ $storeName }}</h4>
                                             @endif
@@ -122,7 +122,7 @@
                                                     @endphp
                                                     <li>
                                                         <a href="{{ url('productDetails/'.$item->product_id) }}" class="photo">
-                                                            <img src="{{ $item->product->image ? asset('images/products/'.$item->product->image) : default_image() }}" class="cart-thumb" alt="..." />
+                                                            <img src="{{ $item->product->image ? Storage::url('images/products/'.$item->product->image) : default_image() }}" class="cart-thumb" alt="..." />
                                                         </a>
                                                         <h6><a href="{{ url('productDetails/'.$item->product_id) }}">{{ $item->product->name }}</a></h6>
                                                         @if(count($item->selected_options) > 0)

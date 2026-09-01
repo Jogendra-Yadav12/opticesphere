@@ -39,7 +39,7 @@
                                     <input type="file" class="form-control" name="image" accept="image/*">
                                     @if($banner->image_path)
                                         <div class="mt-2">
-                                            <img src="{{ asset('images/slider/'.$banner->image_path) }}" alt="Banner" style="height: 60px;">
+                                            <img src="{{ Storage::url('images/slider/'.$banner->image_path) }}" alt="Banner" style="height: 60px;">
                                         </div>
                                     @endif
                                 </div>

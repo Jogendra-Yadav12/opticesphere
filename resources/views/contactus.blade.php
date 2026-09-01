@@ -91,7 +91,7 @@
 
                     <div class="store-details">
                         <div class="contact-img">
-                            <img src="{{ $contactPageImage ? asset('images/'.$contactPageImage) : default_image() }}" alt="..."/>
+                            <img src="{{ $contactPageImage ? Storage::url('images/'.$contactPageImage) : default_image() }}" alt="..."/>
                         </div>
                         <div class="info-box">
                             <h5>{{ $storeName }}</h5>

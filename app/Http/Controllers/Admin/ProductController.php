@@ -280,7 +280,7 @@ class ProductController extends Controller
         }
 
         $filename = 'p-'.time().'-'.Str::random(6).'.'.$request->file('image')->getClientOriginalExtension();
-        $request->file('image')->move(public_path('images/products'), $filename);
+        $request->file('image')->storeAs('images/products', $filename, config('filesystems.default'));
 
         $product->images()->where('is_primary', true)->delete();
 
@@ -295,7 +295,7 @@ class ProductController extends Controller
     {
         foreach ($request->file('gallery', []) as $file) {
             $filename = 'pg-'.time().'-'.Str::random(6).'.'.$file->getClientOriginalExtension();
-            $file->move(public_path('images/products/gallery'), $filename);
+            $file->storeAs('images/products/gallery', $filename, config('filesystems.default'));
 
             ProductImage::create([
                 'product_id' => $product->id,

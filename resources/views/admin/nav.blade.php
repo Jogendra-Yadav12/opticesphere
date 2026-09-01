@@ -8,7 +8,7 @@
             <a class="logo-box" href="{{ url('/') }}">
                 @php $adminLogo = \App\Models\Setting::where('key', 'store_logo')->value('value'); @endphp
                 @if($adminLogo)
-                    <img src="{{ asset('images/logos/'.$adminLogo) }}" alt="..." style="max-height: 40px;">
+                    <img src="{{ Storage::url('images/logos/'.$adminLogo) }}" alt="..." style="max-height: 40px;">
                 @else
                     <span style="font-size: 18px; font-weight: 700;">Admin Panel</span>
                 @endif

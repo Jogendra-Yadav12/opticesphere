@@ -49,7 +49,7 @@
                                     <input type="file" id="imageUpload" name="img" class="d-none" accept="image/*" onchange="previewImage(event)">
                                 </label>
                                 <div class="text-center mt-3">
-                                    <img id="imagePreview" src="{{ $category->img && $category->img !== 'default.png' ? asset('images/'.$category->img) : 'https://ui-avatars.com/api/?name='.urlencode($category->name).'&background=random' }}" alt="Preview" style="max-height: 200px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+                                    <img id="imagePreview" src="{{ $category->img && $category->img !== 'default.png' ? Storage::url('images/'.$category->img) : 'https://ui-avatars.com/api/?name='.urlencode($category->name).'&background=random' }}" alt="Preview" style="max-height: 200px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
                                 </div>
                             </div>
 
