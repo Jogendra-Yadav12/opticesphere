@@ -22,6 +22,21 @@ $app = Application::configure(basePath: dirname(__DIR__))
 
 if (isset($_ENV['VERCEL'])) {
     $app->useStoragePath('/tmp/storage');
+
+    // Ensure necessary storage directories exist in /tmp
+    $directories = [
+        '/tmp/storage/framework/cache/data',
+        '/tmp/storage/framework/sessions',
+        '/tmp/storage/framework/views',
+        '/tmp/storage/logs',
+        '/tmp/storage/app/public',
+    ];
+
+    foreach ($directories as $directory) {
+        if (!is_dir($directory)) {
+            mkdir($directory, 0755, true);
+        }
+    }
 }
 
 return $app;
